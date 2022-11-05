@@ -36,4 +36,4 @@ THEN the saved events persist
 
 ## Links 
 
-Link to deployed page: 
+Link to deployed page: https://albertojl3.github.io/calender-app/
