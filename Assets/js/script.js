@@ -17,11 +17,12 @@ function isFuture(time) {
     return time > today;
 }
 
+
+//you could use moment(9:00AM).format(H) and do that for all the hours in the time block and then keep the same basic structure. 
 var calendarHour = 09;
 
-
+function checkTime() {
 for (i = 0; i < 9; i++) {
-  
     if (isPast(calendarHour) === true) {
         rootEl.children('ul').eq(i).children().eq(1).addClass('past');
     } else if (isFuture(calendarHour) === true) {
@@ -30,4 +31,5 @@ for (i = 0; i < 9; i++) {
         rootEl.children('ul').eq(i).children().eq(1).addClass('present');
     }
     calendarHour++
+}
 }

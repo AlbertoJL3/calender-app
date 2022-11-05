@@ -20,7 +20,7 @@ ul {
 }
 
 input {
-  width: 80vw;
+  width: 50vw;
 }
 
 
@@ -31,12 +31,15 @@ input {
   border-radius: 0;
   border-bottom: 10px solid black;
 }
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100vw;
 }
+
 .description {
   white-space: pre-wrap;
 }
@@ -50,13 +53,17 @@ input {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  width: auto;
 }
 
 .hour {
+  display: flex; 
+  text-align: center;
+  justify-content: center;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
-  width: 100px;
+  width: 5vw;
 }
 
 .past {
@@ -75,16 +82,29 @@ input {
 }
 
 .saveBtn {
-  display: inline; 
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
-
+  width: auto;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+/* Large smartphones - navbar changes color */
+@media screen and (max-width: 768px) {
+  .hour {
+    width: 15vw;
+  }
+}
+
+/* Small smartphones - image placeholders change color */
+@media screen and (max-width: 576px) {
+  .hour {
+    width: 15vw;
+  }
 }
