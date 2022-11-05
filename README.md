@@ -32,7 +32,7 @@ THEN the saved events persist
 
 ## Screenshots
 
-![Screenshot of deployed page!](./Assets/05-third-party-apis-homework-demo.gif)
+![Screenshot of deployed page!](./Assets/images/Screen%20Shot%202022-11-05%20at%205.22.58%20PM.png)
 
 ## Links 
 
