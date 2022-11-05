@@ -1,5 +1,8 @@
 var date = moment().format("ddd MMM Do, YYYY");
 var rootEl = $('#root');
+var tasks = [''];
+
+
 $('#currentDay').text(date);
 
 setInterval(function () {
@@ -22,14 +25,39 @@ function isFuture(time) {
 var calendarHour = 09;
 
 function checkTime() {
-for (i = 0; i < 9; i++) {
-    if (isPast(calendarHour) === true) {
-        rootEl.children('ul').eq(i).children().eq(1).addClass('past');
-    } else if (isFuture(calendarHour) === true) {
-        rootEl.children('ul').eq(i).children().eq(1).addClass('future');
-    } else if (calendarHour == moment().format('H')) {
-        rootEl.children('ul').eq(i).children().eq(1).addClass('present');
+    for (i = 0; i < 9; i++) {
+        if (isPast(calendarHour) === true) {
+            rootEl.children('ul').eq(i).children().eq(1).addClass('past');
+        } else if (isFuture(calendarHour) === true) {
+            rootEl.children('ul').eq(i).children().eq(1).addClass('future');
+        } else if (calendarHour == moment().format('H')) {
+            rootEl.children('ul').eq(i).children().eq(1).addClass('present');
+        }
+        calendarHour++
     }
-    calendarHour++
 }
+
+
+checkTime()
+
+console.log(rootEl.children('ul').eq(0).children(1).eq(1).textContent)
+
+function saveTasks() {
+   
 }
+
+
+
+
+
+rootEl.on("click", function (event) {
+    
+    event.preventDefault();
+    for (i = 0; i < 9; i++) {
+        tasks[i] = rootEl.children('ul').eq(i).children(1).eq(1).val();
+    }
+    
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    console.log(tasks)
+
+});

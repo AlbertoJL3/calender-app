@@ -63,7 +63,7 @@ input {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
-  width: 5vw;
+  width: 15vw;
 }
 
 .past {
@@ -93,6 +93,11 @@ input {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+@media screen and (max-width: 1150px) {
+  .hour {
+    width: 15vw;
+  }
 }
 
 /* Large smartphones - navbar changes color */
