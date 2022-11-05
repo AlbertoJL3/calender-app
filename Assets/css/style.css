@@ -20,7 +20,12 @@ textarea {
   border-radius: 0;
   border-bottom: 10px solid black;
 }
-
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .description {
   white-space: pre-wrap;
 }
@@ -40,6 +45,7 @@ textarea {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  width: 100px;
 }
 
 .past {
