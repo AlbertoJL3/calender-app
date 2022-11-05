@@ -1,7 +1,8 @@
 var date = moment().format("ddd MMM Do, YYYY");
 var rootEl = $('#root');
 var tasks = [''];
-
+var saveBtnEl = $('.saveBtn')
+var calendarHour = 09;
 
 $('#currentDay').text(date);
 
@@ -20,10 +21,6 @@ function isFuture(time) {
     return time > today;
 }
 
-
-//you could use moment(9:00AM).format(H) and do that for all the hours in the time block and then keep the same basic structure. 
-var calendarHour = 09;
-
 function checkTime() {
     for (i = 0; i < 9; i++) {
         if (isPast(calendarHour) === true) {
@@ -38,26 +35,23 @@ function checkTime() {
 }
 
 
-checkTime()
 
-console.log(rootEl.children('ul').eq(0).children(1).eq(1).textContent)
-
-function saveTasks() {
-   
+function loadTasks() {
+    var tasklist = JSON.parse(localStorage.getItem("tasks"));
+    for (i = 0; i < 9; i++) {
+        rootEl.children('ul').eq(i).children(1).eq(1).val(tasklist[i])
+    }
 }
 
 
-
-
-
-rootEl.on("click", function (event) {
-    
+// this uses an array to save all 9 task boxes
+saveBtnEl.on("click", function (event) {
     event.preventDefault();
     for (i = 0; i < 9; i++) {
         tasks[i] = rootEl.children('ul').eq(i).children(1).eq(1).val();
     }
-    
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    console.log(tasks)
-
 });
+
+loadTasks()
+checkTime()
