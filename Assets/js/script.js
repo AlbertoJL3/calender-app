@@ -3,9 +3,10 @@ var rootEl = $('#root');
 var tasks = [''];
 var saveBtnEl = $('.saveBtn')
 var calendarHour = 09;
-
+var tasklist = '';
 $('#currentDay').text(date);
 
+checkTime()
 setInterval(function () {
     var time = moment().format('h:mm:ssa');
     $('#currentTime').text(time);
@@ -36,13 +37,6 @@ function checkTime() {
 
 
 
-function loadTasks() {
-    var tasklist = JSON.parse(localStorage.getItem("tasks"));
-    for (i = 0; i < 9; i++) {
-        rootEl.children('ul').eq(i).children(1).eq(1).val(tasklist[i])
-    }
-}
-
 
 // this uses an array to save all 9 task boxes
 saveBtnEl.on("click", function (event) {
@@ -51,7 +45,19 @@ saveBtnEl.on("click", function (event) {
         tasks[i] = rootEl.children('ul').eq(i).children(1).eq(1).val();
     }
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    console.log(tasks)
 });
 
-loadTasks()
-checkTime()
+
+function loadTasks() {
+    var tasklist = JSON.parse(localStorage.getItem("tasks"));
+    for (i = 0; i < 9; i++) {
+        rootEl.children('ul').eq(i).children(1).eq(1).val(tasklist[i])
+    }
+}
+
+if (tasklist === null) {
+    console.log('write some tasks!')
+} else {
+    loadTasks()
+}
