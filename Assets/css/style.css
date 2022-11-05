@@ -13,6 +13,17 @@ textarea {
   padding: 10px;
 }
 
+ul {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 90vw;
+}
+
+input {
+  width: 80vw;
+}
+
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
